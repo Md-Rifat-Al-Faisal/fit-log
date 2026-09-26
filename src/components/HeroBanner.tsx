@@ -19,7 +19,14 @@ export default function HeroBanner() {
       </div>
       <div className="flex-1 w-full flex justify-center">
         <div className="relative w-full max-w-md aspect-square rounded-2xl overflow-hidden bg-transparent">
-          <Image src="/banner.png" alt="Hero Workout" fill className="object-cover" priority />
+          <Image 
+            src="/banner.png" 
+            alt="Hero Workout" 
+            fill 
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover" 
+            priority 
+          />
         </div>
       </div>
     </section>

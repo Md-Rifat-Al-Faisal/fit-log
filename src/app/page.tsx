@@ -1,11 +1,11 @@
-import React from 'react';
+import HeroBanner from "@/components/HeroBanner";
+import LibrarySection from "@/components/LibrarySection";
 
-const page = () => {
+export default function Home() {
   return (
-    <div>
-      HomePage
+    <div className="w-full">
+      <HeroBanner />
+      <LibrarySection />
     </div>
   );
-};
-
-export default page;
+}
