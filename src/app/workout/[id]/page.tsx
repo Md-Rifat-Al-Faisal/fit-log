@@ -170,11 +170,10 @@ export default function WorkoutDetails({
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
               onClick={() => addToPlan(workout)}
-              aria-disabled={isPlanFull || isAlreadyInPlan}
-              className={`btn font-bold uppercase flex-1 h-14 ${
+              className={`btn font-bold uppercase flex-1 h-14 border-none ${
                 isPlanFull || isAlreadyInPlan
-                  ? "bg-gray-600 text-gray-300 border-none cursor-not-allowed hover:bg-gray-600"
-                  : "bg-[#ccff00] hover:bg-[#b3e600] text-black border-none"
+                  ? "bg-[#454c59] text-gray-200 cursor-not-allowed hover:bg-[#454c59]"
+                  : "bg-[#ccff00] hover:bg-[#b3e600] text-black"
               }`}
             >
               <CalendarPlus size={20} />
@@ -187,10 +186,9 @@ export default function WorkoutDetails({
 
             <button
               onClick={() => addToSaved(workout)}
-              aria-disabled={isAlreadySaved}
               className={`btn uppercase flex-1 h-14 ${
                 isAlreadySaved
-                  ? "bg-gray-900 border-[#2a2a2a] text-gray-400 cursor-not-allowed hover:bg-gray-900"
+                  ? "bg-[#15171c] border-[#23262f] text-gray-400 cursor-not-allowed hover:bg-[#15171c]"
                   : "btn-outline border-gray-500 text-white hover:bg-[#1c1c1e] hover:border-gray-400 hover:text-white"
               }`}
             >
