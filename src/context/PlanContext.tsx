@@ -31,9 +31,14 @@ export function PlanProvider({ children }: { children: ReactNode }) {
     const storedSaved = localStorage.getItem("fitlog-saved");
 
     setTimeout(() => {
-      if (storedPlan) setPlan(JSON.parse(storedPlan));
-      if (storedSaved) setSaved(JSON.parse(storedSaved));
-      setIsHydrated(true);
+      try {
+        if (storedPlan) setPlan(JSON.parse(storedPlan));
+        if (storedSaved) setSaved(JSON.parse(storedSaved));
+      } catch (e) {
+        console.error("Failed to parse local storage data", e);
+      } finally {
+        setIsHydrated(true);
+      }
     }, 0);
   }, []);
 
