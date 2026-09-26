@@ -1,1 +1,14 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  --background: #111111;
+  --foreground: #ffffff;
+  --accent: #ccff00;
+  --card: #1c1c1e;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
