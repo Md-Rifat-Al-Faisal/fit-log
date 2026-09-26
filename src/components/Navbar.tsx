@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { usePlan } from "@/context/PlanContext";
-import { Dumbbell, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
@@ -26,12 +27,12 @@ export default function Navbar() {
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-[#1c1c1e] rounded-box w-52 border border-[#2a2a2a]">
             <li>
-              <Link href="/" className={pathname === "/" ? "text-[#ccff00]" : "text-white"}>
-                Workout
+              <Link href="/" className={pathname === "/" ? "text-[#ccff00] font-bold" : "text-white"}>
+                Workouts
               </Link>
             </li>
             <li>
-              <Link href="/my-plan" className={pathname === "/my-plan" ? "text-[#ccff00]" : "text-white"}>
+              <Link href="/my-plan" className={pathname === "/my-plan" ? "text-[#ccff00] font-bold" : "text-white"}>
                 My Plan
               </Link>
             </li>
@@ -39,16 +40,22 @@ export default function Navbar() {
         </div>
         
         <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-wider text-white uppercase font-oswald">
-          <Dumbbell className="text-[#ccff00]" size={28} />
+          <Image src="/logo.png" alt="FitLog Logo" width={28} height={28} className="object-contain" priority />
           FitLog
         </Link>
       </div>
 
-      <div className="hidden md:flex items-center gap-8 text-sm font-medium bg-[#1c1c1e] px-6 py-2 rounded-full border border-[#2a2a2a]">
-        <Link href="/" className={pathname === "/" ? "text-[#ccff00]" : "text-gray-400 hover:text-white transition"}>
-          Workout
+      <div className="hidden md:flex items-center gap-2 text-sm font-medium">
+        <Link 
+          href="/" 
+          className={`px-5 py-2 rounded-full transition ${pathname === "/" ? "bg-[#1c2b06] border border-[#3a4a12] text-[#ccff00]" : "text-gray-400 hover:text-white border border-transparent"}`}
+        >
+          Workouts
         </Link>
-        <Link href="/my-plan" className={pathname === "/my-plan" ? "text-[#ccff00]" : "text-gray-400 hover:text-white transition"}>
+        <Link 
+          href="/my-plan" 
+          className={`px-5 py-2 rounded-full transition ${pathname === "/my-plan" ? "bg-[#1c2b06] border border-[#3a4a12] text-[#ccff00]" : "text-gray-400 hover:text-white border border-transparent"}`}
+        >
           My Plan
         </Link>
       </div>

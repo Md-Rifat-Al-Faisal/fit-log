@@ -17,6 +17,7 @@ interface PlanContextType {
     minutes: number;
     calories: number;
   };
+  isHydrated: boolean;
 }
 
 const PlanContext = createContext<PlanContextType | null>(null);
@@ -105,6 +106,7 @@ export function PlanProvider({ children }: { children: ReactNode }) {
     removeFromSaved,
     markAsDone,
     metrics,
+    isHydrated,
   };
 
   return <PlanContext.Provider value={value}>{children}</PlanContext.Provider>;

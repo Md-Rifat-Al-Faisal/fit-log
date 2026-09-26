@@ -8,21 +8,18 @@ import Image from "next/image";
 import { CalendarPlus, Bookmark } from "lucide-react";
 import { notFound } from "next/navigation";
 
-// Define the exact type expected by Next.js 15
 export default function WorkoutDetails({ params }: { params: Promise<{ id: string }> }) {
-  const { plan, addToPlan, addToSaved } = usePlan();
+  const { plan, saved, addToPlan, addToSaved } = usePlan();
   const [workout, setWorkout] = useState<Workout | null>(null);
   const [loading, setLoading] = useState(true);
   const [workoutId, setWorkoutId] = useState<string | null>(null);
 
-  // Unwrap the Promise
   useEffect(() => {
     params.then((resolvedParams) => {
       setWorkoutId(resolvedParams.id);
     });
   }, [params]);
 
-  // Fetch the data once the ID is resolved
   useEffect(() => {
     if (!workoutId) return;
 
@@ -47,23 +44,23 @@ export default function WorkoutDetails({ params }: { params: Promise<{ id: strin
     );
   }
 
-  // If loading is finished and there is no workout data, trigger the Next.js 404 page
   if (!workout) {
     notFound();
   }
 
   const isPlanFull = plan.length >= 5;
   const isAlreadyInPlan = plan.some((item) => item.id === workout.id);
+  const isAlreadySaved = saved.some((item) => item.id === workout.id);
 
   return (
     <div className="max-w-360 mx-auto px-6 md:px-12 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-[#1c1c1e]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+        <div className="relative w-full min-h-100 lg:min-h-full rounded-2xl overflow-hidden bg-[#1c1c1e]">
           <Image
             src={workout.image}
             alt={workout.name}
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
             priority
           />
@@ -145,10 +142,11 @@ export default function WorkoutDetails({ params }: { params: Promise<{ id: strin
             
             <button
               onClick={() => addToSaved(workout)}
-              className="btn btn-outline border-gray-500 text-white hover:bg-[#1c1c1e] hover:border-gray-400 hover:text-white uppercase flex-1 h-14"
+              disabled={isAlreadySaved}
+              className="btn btn-outline border-gray-500 text-white hover:bg-[#1c1c1e] hover:border-gray-400 hover:text-white uppercase flex-1 h-14 disabled:opacity-50 disabled:bg-gray-900 disabled:border-[#2a2a2a]"
             >
               <Bookmark size={20} />
-              Save for later
+              {isAlreadySaved ? "Saved" : "Save for later"}
             </button>
           </div>
         </div>
