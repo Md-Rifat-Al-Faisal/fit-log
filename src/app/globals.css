@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-oswald: var(--font-oswald);
+}
+
 :root {
   --background: #111111;
   --foreground: #ffffff;
