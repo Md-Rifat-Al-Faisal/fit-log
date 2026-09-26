@@ -24,10 +24,10 @@ export default function LibrarySection() {
   }, []);
 
   return (
-    <section id="library" className="px-6 md:px-12 py-16 max-w-360 mx-auto">
+    <section id="library" className="max-w-360 mx-auto w-full px-6 lg:px-8 py-16">
       <div className="mb-10">
         <h2 className="text-3xl font-bold font-oswald uppercase text-white mb-2">The Library</h2>
-        <p className="text-gray-400">Twelve lifts covering every major muscle group.</p>
+        <p className="text-[#a1a1aa]">Twelve lifts covering every major muscle group.</p>
       </div>
 
       {loading ? (
@@ -35,7 +35,7 @@ export default function LibrarySection() {
           <span className="loading loading-spinner loading-lg text-[#ccff00]"></span>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
           {workouts.map((workout) => (
             <WorkoutCard key={workout.id} workout={workout} />
           ))}
