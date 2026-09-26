@@ -56,7 +56,7 @@ export function PlanProvider({ children }: { children: ReactNode }) {
       return;
     }
     if (plan.some((item) => item.id === workout.id)) {
-      toast.error("Already in today's plan!");
+      toast.error("Already in your plan");
       return;
     }
     setPlan((prev) => [...prev, { ...workout, isDone: false }]);

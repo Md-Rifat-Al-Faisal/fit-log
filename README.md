@@ -30,6 +30,15 @@
 4. **📊 Live Metrics Tracking:** Automatically calculates and displays real-time summary metrics (total exercises, duration, and calories burned) based on your active plan tab.
 5. **💾 Data Persistence & Sorting:** Saves all planned and saved workouts to `localStorage` safely to survive page reloads. Includes a functional dropdown to sort lists by duration, calories, or rating, and visual strike-throughs for completed routines.
 
+## 🛠️ Technologies Used
+
+- **Next.js 16** (App Router) — routing, page structure, and rendering
+- **TypeScript** — type-safe components and API data models
+- **Tailwind CSS** + **DaisyUI** — styling, responsive layout, and UI components
+- **React Context API** — global state for the plan/saved workout lists
+- **react-hot-toast** — toast notifications for user actions
+- **localStorage** — client-side persistence across page reloads
+
 ## ⚙️ Getting Started
 
 First, run the development server:
@@ -42,3 +51,11 @@ yarn dev
 pnpm dev
 # or
 bun dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+
+## 🔗 Links
+
+- **Live Site:** [fit-log-theta-five.vercel.app](https://fit-log-theta-five.vercel.app/)
+- **Repository:** [github.com/Md-Rifat-Al-Faisal/fit-log](https://github.com/Md-Rifat-Al-Faisal/fit-log)
