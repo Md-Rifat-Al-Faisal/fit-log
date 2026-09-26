@@ -20,8 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${oswald.variable} font-sans antialiased bg-[#111111] text-white flex flex-col min-h-screen`}>
+<html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">      <body className={`${inter.variable} ${oswald.variable} font-sans antialiased bg-[#111111] text-white flex flex-col min-h-screen`}>
         <PlanProvider>
           <Navbar />
           <main className="grow">{children}</main>

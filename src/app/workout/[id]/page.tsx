@@ -157,14 +157,14 @@ export default function WorkoutDetails({
             <h3 className="text-xl font-bold font-oswald text-white uppercase mb-4 tracking-wider">
               Instructions
             </h3>
-            <ul className="space-y-4">
+            <ol className="space-y-4">
               {workout.instructions.map((step, idx) => (
                 <li key={idx} className="flex gap-4 text-gray-300">
                   <span className="text-gray-500 font-bold">{idx + 1}.</span>
                   <span className="leading-relaxed">{step}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">

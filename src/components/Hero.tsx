@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Dumbbell } from "lucide-react";
 
 export default function HeroBanner() {
   return (
@@ -18,7 +19,8 @@ export default function HeroBanner() {
             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it<br className="hidden lg:block" /> into today&apos;s plan, and watch the week&apos;s work add up.
           </p>
 
-          <a href="#library" className="btn bg-[#ccff00] hover:bg-[#b3e600] text-black font-bold border-none rounded-lg uppercase px-10 min-h-14 h-14 w-fit inline-flex text-sm">
+          <a href="#library" className="btn bg-[#ccff00] hover:bg-[#b3e600] text-black font-bold border-none rounded-lg uppercase px-10 min-h-14 h-14 w-fit inline-flex items-center gap-2 text-sm">
+            <Dumbbell size={18} />
             Browse Workouts
           </a>
         </div>
